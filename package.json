@@ -2,6 +2,11 @@
   "name": "react-next-js-code-snippets",
   "displayName": "React Next JS Code Snippets",
   "description": "",
+  "publisher": "sohanemon",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sohanemon/react-next-js-code-snippets"
+  },
   "version": "0.0.1",
   "engines": {
     "vscode": "^1.77.0"
