@@ -7,6 +7,13 @@
     "body": ["const $2 = use$1($0);"],
     "description": "React use() hook"
   },
+
+  "reactCustomHook": {
+    "scope": "typescript,typescriptreact,javascript,javascriptreact",
+    "prefix": "rchook",
+    "body": " const ${1:${TM_FILENAME_BASE/(.*)/${1:/camelcase}/g}} = () => {\n\t$0\n};\n\nexport default ${1:${TM_FILENAME_BASE}};",
+    "description": "Creates a stateless React component without PropTypes and ES6 module system"
+  },
   // react hooks components usage.
   "useState": {
     "prefix": "rustate",
@@ -77,13 +84,50 @@
   /* ------------------- React Hooks Code Snippets End ------------------- */
   /* --------------------------------------------------------------------- */
 
-  /* ---------------------- next js 13 code snippets --------------------- */
-
-  "nextStateless": {
-    "prefix": "nsc",
+  /* --------------------------------------------------------------------- */
+  /* -------------------------- React Components ------------------------- */
+  /* --------------------------------------------------------------------- */
+  "React Stateless": {
+    "prefix": "rsc:default-export",
     "body": "export default function ${1:${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g}}() {\n\treturn (\n\t\t<>\n\t\t\t$0\n\t\t</>\n\t);\n};",
     "description": "Creates a stateless React component without PropTypes and ES6 module system"
   },
+
+  "ArrowFunctionComponent": {
+    "scope": "javascript,javascriptreact,typescript,typescriptreact",
+    "prefix": "rsc:no-export",
+    "body": [
+      "const ${1/(.*)/${1:/pascalcase}/g} = () => {",
+      "  return (",
+      "    <>${0}</>",
+      "  )",
+      "}",
+      ""
+    ],
+    "description": "Creates a React Arrow Function Component with ES7 module system"
+  },
+  "ArrowFunctionComponentExport": {
+    "scope": "javascript,javascriptreact,typescript,typescriptreact",
+    "prefix": "rsc:named-export",
+    "body": [
+      "export const ${1/(.*)/${1:/pascalcase}/g} = () => {",
+      "  return (",
+      "    <>${0}</>",
+      "  )",
+      "}",
+      ""
+    ],
+    "description": "Creates a React Arrow Function Component with ES7 module system"
+  },
+
+  /* --------------------------------------------------------------------- */
+  /* ------------------------ React Components End ----------------------- */
+  /* --------------------------------------------------------------------- */
+
+  /* --------------------------------------------------------------------- */
+  /* ---------------------- next js 13 code snippets --------------------- */
+  /* --------------------------------------------------------------------- */
+
   "use client": {
     "prefix": "uc",
     "body": "'use client'",
@@ -182,6 +226,23 @@
     "description": "Create a not found UI for this route"
   },
 
+  "Styled JSX Importer": {
+    "scope": "typescript,typescriptreact,javascript,javascriptreact",
+    "prefix": "njsx",
+    "body": [
+      "",
+      "<style jsx>",
+      "  {`",
+      "    .${1:ClassName}{",
+      "      @apply ${0}",
+      "    }",
+      "  `}",
+      "</style>",
+      ""
+    ],
+    "description": "Use Styled JSX"
+  },
+
   "Nextjs Api route": {
     "prefix": "napi",
     "body": [
@@ -197,7 +258,109 @@
     "body": ["return NextResponse.json(${0:data});"],
 
     "description": "Next Api Route"
-  }
-
+  },
+  /* --------------------------------------------------------------------- */
   /* ----------------------- next 13 extension end ----------------------- */
+  /* --------------------------------------------------------------------- */
+
+  /* --------------------------------------------------------------------- */
+  /* --------------------- Bonus: Javascript Snippets -------------------- */
+  /* --------------------------------------------------------------------- */
+  //Emon: Snippet for normal usage. 🚀🚀🚀
+
+  "Regular Function": {
+    "scope": "typescript,typescriptreact,javascript,javascriptreact",
+    "prefix": "fun",
+    "body": ["function ${1/(.*)/${1:/camelcase}/g}(){", "  ${0}", "}", ""],
+    "description": "Creates a Function"
+  },
+  "Async Regular Function": {
+    "scope": "typescript,typescriptreact,javascript,javascriptreact",
+    "prefix": "fun:async",
+    "body": [
+      "async function ${1/(.*)/${1:/camelcase}/g}(){",
+      "  ${0}",
+      "}",
+      ""
+    ],
+    "description": "Creates a Function"
+  },
+  "Normal ArrowFunction": {
+    "scope": "typescript,typescriptreact,javascript,javascriptreact",
+    "prefix": "fn",
+    "body": ["const ${1/(.*)/${1:/camelcase}/g} = () => {", "  ${0}", "}", ""],
+    "description": "Creates a React Arrow Function with ES7 module system"
+  },
+  "Async ArrowFunction": {
+    "scope": "typescript,typescriptreact,javascript,javascriptreact",
+    "prefix": "fn:async",
+    "body": [
+      "const ${1/(.*)/${1:/camelcase}/g} = async () => {",
+      "  ${0}",
+      "}",
+      ""
+    ],
+    "description": "Creates a React Arrow Function with ES7 module system"
+  },
+  "Anonymous ArrowFunction": {
+    "scope": "typescript,typescriptreact,javascript,javascriptreact",
+    "prefix": "fn:anonymous",
+    "body": ["($1) => $0"],
+    "description": "Creates an Anonymous Arrow Function with ES7 module system"
+  },
+
+  "consoleLog": {
+    "scope": "typescript,typescriptreact,javascript,javascriptreact",
+    "prefix": "clg",
+    "body": ["console.log(${1:first})"],
+    "description": "Displays a message in the console"
+  },
+
+  /* ------------------------- export and import ------------------------- */
+
+  "exportDefault": {
+    "scope": "typescript,typescriptreact,javascript,javascriptreact",
+    "prefix": "exp:default",
+    "body": ["export default ${1:${TM_FILENAME_BASE/(.*)/${1:/camelcase}/g}}"]
+  },
+  "exportNamed": {
+    "scope": "typescript,typescriptreact,javascript,javascriptreact",
+    "prefix": "exp:named",
+    "body": ["export {${1:${TM_FILENAME_BASE/(.*)/${1:/camelcase}/g}}}"]
+  },
+  "importDefault": {
+    "scope": "typescript,typescriptreact,javascript,javascriptreact",
+    "prefix": "imp:default",
+    "body": ["import ${2:name} from '${1:loc}'"]
+  },
+  "importNamed": {
+    "scope": "typescript,typescriptreact,javascript,javascriptreact",
+    "prefix": "imp:named",
+    "body": ["import {${2:name}} from '${1:loc}'"]
+  },
+  "importLazy": {
+    "scope": "typescript,typescriptreact,javascript,javascriptreact",
+    "prefix": "imp:lazy",
+    "body": ["const ${2:name} = lazy(() => import('${1:loc}'));"]
+  },
+
+  // api related
+  "fetch api": {
+    "scope": "typescript,typescriptreact,javascript,javascriptreact",
+    "prefix": "fetch",
+    "body": [
+      "fetch(${1:URL}, {",
+      "\tmethod: \"${2:POST}\",",
+      "\theaders: {",
+      "\t\t\"Content-Type\": \"application/json\",",
+      "\t},",
+      "\tbody: JSON.stringify({${3:data}),",
+      "})",
+      ".then((res) => res.json())",
+      ".then((data) => console.log(data));"
+    ]
+  }
+  /* --------------------------------------------------------------------- */
+  /* ---------------------- Javascript Snippets End ---------------------- */
+  /* --------------------------------------------------------------------- */
 }
