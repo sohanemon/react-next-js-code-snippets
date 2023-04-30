@@ -240,9 +240,8 @@
       "</style>",
       ""
     ],
-    "description": "Use Styled JSX"
+    "description": "Use Styled JSX!"
   },
-
   "Nextjs Api route": {
     "prefix": "napi",
     "body": [
@@ -266,6 +265,7 @@
   /* --------------------------------------------------------------------- */
   /* --------------------- Bonus: Javascript Snippets -------------------- */
   /* --------------------------------------------------------------------- */
+
   //Emon: Snippet for normal usage. 🚀🚀🚀
 
   "Regular Function": {
