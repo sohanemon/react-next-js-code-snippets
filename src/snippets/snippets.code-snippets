@@ -1,40 +1,6 @@
 {
   /* ---------------------- next js 13 code snippets --------------------- */
-  "root layout component": {
-    "scope": "typescript,typescriptreact",
-    "prefix": "nlayoutroot",
-    "body": [
-      "export const metadata = {title: ''}",
-      "export default function RootLayout({",
-      "  children,",
-      "}: {",
-      "  children: React.ReactNode;",
-      "}) {",
-      "  return (",
-      "    <html lang='en'>",
-      "      <head />",
-      "      <body>{children}</body>",
-      "    </html>",
-      "  );",
-      "}"
-    ],
-    "description": "Next layout Component"
-  },
-  "layout component": {
-    "scope": "typescript,typescriptreact",
-    "prefix": "nlayout",
-    "body": [
-      "export const metadata = {title: ''}",
-      "export default function Layout({",
-      "  children,",
-      "}: {",
-      "  children: React.ReactNode;",
-      "}) {",
-      "  return children",
-      "}"
-    ],
-    "description": "Next layout Component"
-  },
+
   "nextStateless": {
     "prefix": "nsc",
     "body": "export default function ${1:${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g}}() {\n\treturn (\n\t\t<>\n\t\t\t$0\n\t\t</>\n\t);\n};",
@@ -46,112 +12,114 @@
     "description": "add use client"
   },
 
-  /* -------------------------------- old -------------------------------- */
-  // nextjs functions. Thanks to Pulkit Gangwar❤❤❤
-  "Nextjs getServerSideProps": {
-    "scope": "typescript,typescriptreact,javascript,javascriptreact",
-    "prefix": "gssp",
+  "Typescript layout": {
+    "prefix": "nlayout:typescript",
     "body": [
-      "export const getServerSideProps = async (${1:ctx}) => {",
-      "",
-      "",
-      "\treturn {",
-      "\t\tprops:{data}",
-      "\t}",
+      "export default function $1Layout({ children }: { children: React.ReactNode; }) {",
+      "\treturn children",
       "}"
     ],
-    "description": "Next GetServerSideProps"
+    "description": "Create a layout for this route"
   },
-  "Nextjs getStaticProps": {
-    "scope": "typescript,typescriptreact,javascript,javascriptreact",
-    "prefix": "gsprops",
+  "Layout": {
+    "prefix": "nlayout:javascript",
     "body": [
-      "export const getStaticProps = async (${1:ctx}) => {",
-      "",
-      "",
-      "\treturn {",
-      "\t\tprops:{data}",
-      "\t}",
+      "export default function $1Layout({ children }) {",
+      "\treturn children",
       "}"
     ],
-    "description": "Next GetStaticProps"
+    "description": "Create a layout for this route"
   },
-  "Nextjs getStaticPaths": {
-    "scope": "typescript,typescriptreact,javascript,javascriptreact",
-    "prefix": "gspath",
+  "Page": {
+    "prefix": "page",
     "body": [
-      "export const getStaticPaths = async () => {",
-      "",
-      "",
-      "\treturn {",
-      "\t\tpaths:${1:[]},",
-      "\t\tfallback:${2:false}",
-      "\t}",
+      "export default function $1Page() {",
+      "\treturn (",
+      "\t\t$2)",
       "}"
     ],
-    "description": "Next GetStaticPaths"
+    "description": "Create a page"
   },
-  "Nextjs getInitialProps": {
-    "scope": "typescript,typescriptreact,javascript,javascriptreact",
-    "prefix": "giprops",
+
+  "Typescript Root Layout": {
+    "prefix": "nlayout:root-typescript",
     "body": [
-      "${1:${TM_FILENAME_BASE}}.getInitialProps = async (${2:ctx}) => {",
-      "",
-      "\treturn {",
-      "\t\t${3:data:null}",
-      "\t}",
+      "export default function RootLayout({ children }: { children: React.ReactNode; }) {",
+      "\treturn (",
+      "\t\t<html lang='en'>",
+      "\t\t\t<body>{children}</body>",
+      "\t\t</html>",
+      "\t)",
       "}"
     ],
-    "description": "Next GetInitialProps"
+    "description": "Create a root layout"
   },
-  "Nextjs custom app (_app.js)": {
-    "scope": "typescript,typescriptreact,javascript,javascriptreact",
-    "prefix": "ncapp",
+  "Root layout": {
+    "prefix": "nlayout:root-javascript",
     "body": [
-      "// import App from 'next/app'",
-      "",
-      "const MyApp = ({ Component, pageProps }) => {",
-      "\treturn <Component {...pageProps} />",
-      "}",
-      "",
-      "//MyApp.getInitialProps = async (appContext) => {",
-      "//\t// calls page's `getInitialProps` and fills `appProps.pageProps`",
-      "//\tconst appProps = await App.getInitialProps(appContext);",
-      "//\treturn { ...appProps }",
-      "// }",
-      "",
-      "export default MyApp;"
+      "export default function RootLayout({ children }) {",
+      "\treturn (",
+      "\t\t<html lang='en'>",
+      "\t\t\t<body>{children}</body>",
+      "\t\t</html>",
+      "\t)",
+      "}"
     ],
-    "description": "Next Custom App (_app.js)"
+    "description": "Create a root layout"
   },
-  "Nextjs Custom Document (_document.js)": {
-    "scope": "typescript,typescriptreact,javascript,javascriptreact",
-    "prefix": "ncdocument",
+  "Loading": {
+    "prefix": "nloading",
     "body": [
-      "import Document, { Html, Head, Main, NextScript } from 'next/document'",
-      "",
-      "class MyDocument extends Document {",
-      "\tstatic async getInitialProps(ctx) {",
-      "\t\tconst initialProps = await Document.getInitialProps(ctx)",
-      "\t\treturn { ...initialProps }",
-      "}",
-      "",
-      "\trender() {",
-      "\t\treturn (",
-      "\t\t\t<Html>",
-      "\t\t\t\t<Head/>",
-      "\t\t\t\t<body>",
-      "\t\t\t\t\t<Main />",
-      "\t\t\t\t\t<NextScript />",
-      "\t\t\t\t</body>",
-      "\t\t\t</Html>",
-      "\t\t)",
-      "\t}",
-      "}",
-      "",
-      "export default MyDocument;"
+      "export default function $1Loading() {",
+      "\treturn (",
+      "\t\t$2",
+      "\t)",
+      "}"
     ],
-    "description": "Next Custom Document (_document.js)"
+    "description": "Create a loading UI for this route"
+  },
+  "Error": {
+    "prefix": "nerror",
+    "body": [
+      "'use client'",
+      "",
+      "export default function $1Error() {",
+      "\treturn (",
+      "\t\t$2",
+      "\t)",
+      "}"
+    ],
+    "description": "Create an error UI for this route"
+  },
+
+  "Not found": {
+    "prefix": "nnotfound",
+    "body": [
+      "export default function $1NotFound() {",
+      "\treturn (",
+      "\t\t$2",
+      "\t)",
+      "}"
+    ],
+    "description": "Create a not found UI for this route"
+  },
+
+  "Nextjs Api route": {
+    "prefix": "napi",
+    "body": [
+      "export async function ${1|GET,POST,PATCH,PUT,DELETE|}(req: Request){",
+      "\t$0",
+      "}"
+    ],
+
+    "description": "Next Api Route"
+  },
+  "Nextjs Api response": {
+    "prefix": "nres",
+    "body": ["return NextResponse.json(${0:data});"],
+
+    "description": "Next Api Route"
   }
+
   /* ----------------------- next 13 extension end ----------------------- */
 }
