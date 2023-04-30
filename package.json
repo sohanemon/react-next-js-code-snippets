@@ -1,14 +1,14 @@
 {
   "name": "react-next-js-code-snippets",
   "displayName": "React Next JS Code Snippets",
-  "description": "",
+  "description": "React Next.js development with lightning-fast code snippets!",
   "publisher": "sohanemon",
   "repository": {
     "type": "git",
     "url": "https://github.com/sohanemon/react-next-js-code-snippets"
   },
   "icon": "src/assets/icon.png",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "engines": {
     "vscode": "^1.77.0"
   },
@@ -18,7 +18,15 @@
   "contributes": {
     "snippets": [
       {
-        "language": "'javascript','javascriptreact','typescriptreact'",
+        "language": "javascript",
+        "path": "src/snippets/snippets.code-snippets"
+      },
+      {
+        "language": "javascriptreact",
+        "path": "src/snippets/snippets.code-snippets"
+      },
+      {
+        "language": "typescriptreact",
         "path": "src/snippets/snippets.code-snippets"
       }
     ]
