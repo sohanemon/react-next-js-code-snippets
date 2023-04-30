@@ -138,17 +138,6 @@
     ],
     "description": "Create a layout for this route"
   },
-  "Page": {
-    "prefix": "page",
-    "body": [
-      "export default function $1Page() {",
-      "\treturn (",
-      "\t\t$2)",
-      "}"
-    ],
-    "description": "Create a page"
-  },
-
   "Typescript Root Layout": {
     "prefix": "nlayout:root-typescript",
     "body": [
