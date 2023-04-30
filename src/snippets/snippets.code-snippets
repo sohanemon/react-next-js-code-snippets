@@ -65,21 +65,7 @@
     "prefix": "rumemo",
     "body": ["useMemo$0(() => ${1:first}, [${2:second}])"]
   },
-  /* ---------------------------- react query ---------------------------- */
-  "react query": {
-    "prefix": "ruquery",
-    "body": ["const { data$4 } = useQuery$1(['$2'], () => $3);"]
-  },
 
-  /* -------------------------- react redux hook ------------------------- */
-  "redux useSelector": {
-    "prefix": "ruselector",
-    "body": ["const ${0:state} = useSelector((state: RootState) => state$1)"]
-  },
-  "redux useDispatch": {
-    "prefix": "rudispatch",
-    "body": ["const dispatch = useDispatch()"]
-  },
   /* --------------------------------------------------------------------- */
   /* ------------------- React Hooks Code Snippets End ------------------- */
   /* --------------------------------------------------------------------- */
