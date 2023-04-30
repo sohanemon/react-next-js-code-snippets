@@ -1,4 +1,82 @@
 {
+  /* --------------------------------------------------------------------- */
+  /* --------------------- React Hooks Code Snippets --------------------- */
+  /* --------------------------------------------------------------------- */
+  "useHook": {
+    "prefix": "ruhook",
+    "body": ["const $2 = use$1($0);"],
+    "description": "React use() hook"
+  },
+  // react hooks components usage.
+  "useState": {
+    "prefix": "rustate",
+    "body": [
+      "const [${1:state}, set${1/(.*)/${1:/capitalize}/}] = useState$0(${2})"
+    ]
+  },
+  "useEffect": {
+    "prefix": "rueffect",
+    "body": [
+      "useEffect$0(() => {",
+      "  ${1}",
+      "",
+      "  return () => {",
+      "    ${2}",
+      "  }",
+      "}, [${3}])",
+      ""
+    ]
+  },
+  "useRef": {
+    "prefix": "ruref",
+    "body": ["const ${1} = useRef$0(${2:null})"]
+  },
+  "useTransition": {
+    "prefix": "rutransition",
+    "body": ["const [isPending, startTransition] = useTransition$0()"]
+  },
+  "useReducer": {
+    "prefix": "rureducer",
+    "body": [
+      "const [state, dispatch] = useReducer$0(${1:first}, ${2:second}, ${3:third})"
+    ]
+  },
+
+  "createContext": {
+    "prefix": "rccontext",
+    "body": [
+      "import { createContext, useContext } from \"react\";",
+      "const ${1:Name} = createContext$0();",
+      "export const use${1:Name} = () => useContext(${1:Name});$0"
+    ]
+  },
+  "useContext": {
+    "prefix": "rucontext",
+    "body": ["const ${1:first} = useContext$0(${2:second})"]
+  },
+  "useMemo": {
+    "prefix": "rumemo",
+    "body": ["useMemo$0(() => ${1:first}, [${2:second}])"]
+  },
+  /* ---------------------------- react query ---------------------------- */
+  "react query": {
+    "prefix": "ruquery",
+    "body": ["const { data$4 } = useQuery$1(['$2'], () => $3);"]
+  },
+
+  /* -------------------------- react redux hook ------------------------- */
+  "redux useSelector": {
+    "prefix": "ruselector",
+    "body": ["const ${0:state} = useSelector((state: RootState) => state$1)"]
+  },
+  "redux useDispatch": {
+    "prefix": "rudispatch",
+    "body": ["const dispatch = useDispatch()"]
+  },
+  /* --------------------------------------------------------------------- */
+  /* ------------------- React Hooks Code Snippets End ------------------- */
+  /* --------------------------------------------------------------------- */
+
   /* ---------------------- next js 13 code snippets --------------------- */
 
   "nextStateless": {
