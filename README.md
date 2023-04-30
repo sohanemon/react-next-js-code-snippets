@@ -39,3 +39,20 @@
 | Styled JSX Importer    | njsx                    |
 | Nextjs Api route       | napi                    |
 | Nextjs Api response    | nres                    |
+
+## Bonus Javascript Snippets
+
+| Name                    | Prefix       |
+| ----------------------- | ------------ |
+| Regular Function        | fun          |
+| Async Regular Function  | fun:async    |
+| Normal ArrowFunction    | fn           |
+| Async ArrowFunction     | fn:async     |
+| Anonymous ArrowFunction | fn:anonymous |
+| consoleLog              | clg          |
+| exportDefault           | exp:default  |
+| exportNamed             | exp:named    |
+| importDefault           | imp:default  |
+| importNamed             | imp:named    |
+| importLazy              | imp:lazy     |
+| fetch api               | fetch        |
