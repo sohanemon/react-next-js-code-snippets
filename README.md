@@ -30,7 +30,6 @@
 | use client             | uc                      |
 | Typescript layout      | nlayout:typescript      |
 | Layout                 | nlayout:javascript      |
-| Page                   | page                    |
 | Typescript Root Layout | nlayout:root-typescript |
 | Root layout            | nlayout:root-javascript |
 | Loading                | nloading                |
