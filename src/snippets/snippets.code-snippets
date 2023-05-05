@@ -18,13 +18,13 @@
   "useState": {
     "prefix": "rustate",
     "body": [
-      "const [${1:state}, set${1/(.*)/${1:/capitalize}/}] = useState$0(${2})"
+      "const [${1:state}, set${1/(.*)/${1:/capitalize}/}] = useState(${2})"
     ]
   },
   "useEffect": {
     "prefix": "rueffect",
     "body": [
-      "useEffect$0(() => {",
+      "useEffect(() => {",
       "  ${1}",
       "",
       "  return () => {",
@@ -36,16 +36,16 @@
   },
   "useRef": {
     "prefix": "ruref",
-    "body": ["const ${1} = useRef$0(${2:null})"]
+    "body": ["const ${1} = useRef(${2:null})"]
   },
   "useTransition": {
     "prefix": "rutransition",
-    "body": ["const [isPending, startTransition] = useTransition$0()"]
+    "body": ["const [isPending, startTransition] = useTransition()"]
   },
   "useReducer": {
     "prefix": "rureducer",
     "body": [
-      "const [state, dispatch] = useReducer$0(${1:first}, ${2:second}, ${3:third})"
+      "const [state, dispatch] = useReducer(${1:first}, ${2:second}, ${3:third})"
     ]
   },
 
@@ -53,17 +53,17 @@
     "prefix": "rccontext",
     "body": [
       "import { createContext, useContext } from \"react\";",
-      "const ${1:Name} = createContext$0();",
+      "const ${1:Name} = createContext();",
       "export const use${1:Name} = () => useContext(${1:Name});$0"
     ]
   },
   "useContext": {
     "prefix": "rucontext",
-    "body": ["const ${1:first} = useContext$0(${2:second})"]
+    "body": ["const ${1:first} = useContext(${2:second})"]
   },
   "useMemo": {
     "prefix": "rumemo",
-    "body": ["useMemo$0(() => ${1:first}, [${2:second}])"]
+    "body": ["useMemo(() => ${1:first}, [${2:second}])"]
   },
 
   /* --------------------------------------------------------------------- */
@@ -118,6 +118,12 @@
     "prefix": "uc",
     "body": "'use client'",
     "description": "add use client"
+  },
+
+  "use server": {
+    "prefix": "us",
+    "body": "'use server'",
+    "description": "add use server"
   },
 
   "Typescript layout": {
@@ -230,6 +236,12 @@
   "Nextjs Api response": {
     "prefix": "nres",
     "body": ["return NextResponse.json(${0:data});"],
+
+    "description": "Next Api Route"
+  },
+  "Nextjs Api request handle": {
+    "prefix": "nreq",
+    "body": ["const ${0:data} = await req.json();"],
 
     "description": "Next Api Route"
   },
