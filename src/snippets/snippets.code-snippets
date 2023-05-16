@@ -337,13 +337,7 @@
     "scope": "typescript,typescriptreact,javascript,javascriptreact",
     "prefix": "fetch:await",
     "body": [
-      "const res = await fetch(${1:URL}, {",
-      "\tmethod: \"${2:POST}\",",
-      "\theaders: {",
-      "\t\t\"Content-Type\": \"application/json\",",
-      "\t},",
-      "\tbody: JSON.stringify(${3:data}),",
-      "})",
+      "const res = await fetch(${1:URL})",
       "const data = await res.json()",
     ]
   },
