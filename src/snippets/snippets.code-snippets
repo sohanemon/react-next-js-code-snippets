@@ -97,6 +97,17 @@
     ],
     "description": "Creates a React Arrow Function Component with ES7 module system"
   },
+  "Component with children": {
+    "scope": "javascript,javascriptreact,typescript,typescriptreact",
+    "prefix": "rsc:provider",
+    "body": [
+      "export default function ${1:${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g}}({children}: {children: React.ReactNode}){",
+      "return <>${0}</>;",
+      "}",
+      ""
+    ],
+    "description": "Creates a Functional Component with children"
+  },
   "ArrowFunctionComponentExport": {
     "scope": "javascript,javascriptreact,typescript,typescriptreact",
     "prefix": "rsc:named-export",
