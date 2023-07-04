@@ -25,12 +25,8 @@
   "useEffect": {
     "prefix": "rueffect",
     "body": [
-      "useEffect(() => {",
-      "  ${1}",
-      "",
-      "  return () => {",
-      "    ${2}",
-      "  }",
+      "useEffect$1(() => {",
+      "  ${2}",
       "}, [${3}])",
       ""
     ]
@@ -85,7 +81,7 @@
     "description": "Creates a stateless React component without PropTypes and ES6 module system"
   },
   "ArrowFunctionComponent": {
-    "scope": "javascript,javascriptreact,typescript,typescriptreact",
+    "scope": "javascript,javascriptreact,typescriptreact",
     "prefix": "rsc:no-export",
     "body": [
       "const ${1/(.*)/${1:/pascalcase}/g} = () => {",
@@ -98,7 +94,7 @@
     "description": "Creates a React Arrow Function Component with ES7 module system"
   },
   "Component with children": {
-    "scope": "javascript,javascriptreact,typescript,typescriptreact",
+    "scope": "javascript,javascriptreact,typescriptreact",
     "prefix": "rsc:provider",
     "body": [
       "export default function ${1:${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g}}({children}: {children: React.ReactNode}){",
@@ -109,7 +105,7 @@
     "description": "Creates a Functional Component with children"
   },
   "ArrowFunctionComponentExport": {
-    "scope": "javascript,javascriptreact,typescript,typescriptreact",
+    "scope": "javascript,javascriptreact,typescriptreact",
     "prefix": "rsc:named-export",
     "body": [
       "export const ${1/(.*)/${1:/pascalcase}/g} = () => {",
