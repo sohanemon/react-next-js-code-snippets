@@ -13,20 +13,43 @@
     "body": " const ${1:${TM_FILENAME_BASE/(.*)/${1:/camelcase}/g}} = () => {\n\t$0\n};\n\nexport default ${1:${TM_FILENAME_BASE}};",
     "description": "Creates a stateless React component without PropTypes and ES6 module system"
   },
+  "reactCustomUpdateHook": {
+    "scope": "typescript,typescriptreact,javascript,javascriptreact",
+    "prefix": "rcupdatehook",
+
+    "body": [
+      "import { useRef, useEffect } from 'react';",
+      "",
+      "export default function useUpdateEffect(effect: () => any, deps: any[]) {",
+      "  const isInitialMount = useRef(true);",
+      "",
+      "  useEffect(() => {",
+      "    if (isInitialMount.current) {",
+      "      isInitialMount.current = false;",
+      "    } else {",
+      "      return effect();",
+      "    }",
+      "  }, deps);",
+      "}"
+    ],
+    "description": "Creates a stateless React component without PropTypes and ES6 module system"
+  },
   // react hooks components usage.
   "useState": {
     "prefix": "rustate",
-    "body": [
-      "const [${1:state}, set${1/(.*)/${1:/capitalize}/}] = useState(${2:s})"
-    ]
+    "body": ["const [${1:state}, set${1/(.*)/${1:/capitalize}/}] = useState()"]
   },
   "useEffect": {
     "prefix": "rueffect",
     "body": ["useEffect$1(() => {", "  ${2}", "}, [${3}])", ""]
   },
+  "useLayoutEffect": {
+    "prefix": "rulayouteffect",
+    "body": ["useLayoutEffect$1(() => {", "  ${2}", "}, [${3}])", ""]
+  },
   "useRef": {
     "prefix": "ruref",
-    "body": ["const ${1} = useRef(${2:null})"]
+    "body": ["const ${1} = useRef(null)"]
   },
   "useTransition": {
     "prefix": "rutransition",
