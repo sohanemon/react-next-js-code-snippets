@@ -4,8 +4,13 @@
   /* --------------------------------------------------------------------- */
   "useHook": {
     "prefix": "ruhook",
-    "body": ["const ${2:{}} = use$1($0);"],
+    "body": ["const {$2} = use$1($0);"],
     "description": "React use() hook"
+  },
+  "useStore": {
+    "prefix": "rustore",
+    "body": ["const [$0] = use$1(s=>[$2]);"],
+    "description": "React use store hook basically for zustand and redux"
   },
   "reactCustomHook": {
     "scope": "typescript,typescriptreact,javascript,javascriptreact",
