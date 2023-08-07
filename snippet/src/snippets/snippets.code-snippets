@@ -4,12 +4,16 @@
   /* --------------------------------------------------------------------- */
   "useHook": {
     "prefix": "ruhook",
-    "body": ["const {$2} = use$1($0);"],
+    "body": [
+      "const {$2} = use$1($0);"
+    ],
     "description": "React use() hook"
   },
   "useStore": {
     "prefix": "rustore",
-    "body": ["const [$0] = use$1(s=>[$2]);"],
+    "body": [
+      "const [$0] = use$1(s=>[$2]);"
+    ],
     "description": "React use store hook basically for zustand and redux"
   },
   "reactCustomHook": {
@@ -21,7 +25,6 @@
   "reactCustomUpdateHook": {
     "scope": "typescript,typescriptreact,javascript,javascriptreact",
     "prefix": "rcupdatehook",
-
     "body": [
       "import { useRef, useEffect } from 'react';",
       "",
@@ -42,23 +45,39 @@
   // react hooks components usage.
   "useState": {
     "prefix": "rustate",
-    "body": ["const [${1:state}, set${1/(.*)/${1:/capitalize}/}] = useState()"]
+    "body": [
+      "const [${1:state}, set${1/(.*)/${1:/capitalize}/}] = useState()"
+    ]
   },
   "useEffect": {
     "prefix": "rueffect",
-    "body": ["useEffect$1(() => {", "  ${2}", "}, [${3}])", ""]
+    "body": [
+      "useEffect$1(() => {",
+      "  ${2}",
+      "}, [${3}])",
+      ""
+    ]
   },
   "useLayoutEffect": {
     "prefix": "rulayouteffect",
-    "body": ["useLayoutEffect$1(() => {", "  ${2}", "}, [${3}])", ""]
+    "body": [
+      "useLayoutEffect$1(() => {",
+      "  ${2}",
+      "}, [${3}])",
+      ""
+    ]
   },
   "useRef": {
     "prefix": "ruref",
-    "body": ["const ${1} = useRef(null)"]
+    "body": [
+      "const ${1} = useRef(null)"
+    ]
   },
   "useTransition": {
     "prefix": "rutransition",
-    "body": ["const [isPending, startTransition] = useTransition()"]
+    "body": [
+      "const [isPending, startTransition] = useTransition()"
+    ]
   },
   "useReducer": {
     "prefix": "rureducer",
@@ -76,11 +95,17 @@
   },
   "useContext": {
     "prefix": "rucontext",
-    "body": ["const ${1:first} = useContext(${2:second})"]
+    "body": [
+      "const ${1:first} = useContext(${2:second})"
+    ]
   },
   "useMemo": {
     "prefix": "rumemo",
-    "body": ["const ${1:data} = useMemo(() => {", "\t", "} , [])"]
+    "body": [
+      "const ${1:data} = useMemo(() => {",
+      "\t",
+      "} , [])"
+    ]
   },
   /* --------------------------------------------------------------------- */
   /* ------------------- React Hooks Code Snippets End ------------------- */
@@ -111,7 +136,7 @@
     "prefix": "rsc:provider",
     "body": [
       "export default function ${1:${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g}}({children}: {children: React.ReactNode}){",
-      "return <>${0}</>;",
+      "return <>{children}</>;",
       "}",
       ""
     ],
@@ -150,7 +175,7 @@
     "prefix": "nlayout:typescript",
     "body": [
       "export default function $1Layout({ children }: { children: React.ReactNode; }) {",
-      "\treturn children",
+      "\treturn <>{children}</>",
       "}"
     ],
     "description": "Create a layout for this route"
@@ -159,7 +184,7 @@
     "prefix": "nlayout:javascript",
     "body": [
       "export default function $1Layout({ children }) {",
-      "\treturn children",
+      "\treturn <>{children}</>",
       "}"
     ],
     "description": "Create a layout for this route"
@@ -252,12 +277,16 @@
   },
   "Nextjs Api response": {
     "prefix": "nres",
-    "body": ["return NextResponse.json(${0:data});"],
+    "body": [
+      "return NextResponse.json(${0:data});"
+    ],
     "description": "Next Api Route"
   },
   "Nextjs Api request handle": {
     "prefix": "nreq",
-    "body": ["const ${0:data} = await req.json();"],
+    "body": [
+      "const ${0:data} = await req.json();"
+    ],
     "description": "Next Api Route"
   },
   /* --------------------------------------------------------------------- */
@@ -270,7 +299,12 @@
   "Regular Function": {
     "scope": "typescript,typescriptreact,javascript,javascriptreact",
     "prefix": "fun",
-    "body": ["function ${1/(.*)/${1:/camelcase}/g}(){", "  ${0}", "}", ""],
+    "body": [
+      "function ${1/(.*)/${1:/camelcase}/g}(){",
+      "  ${0}",
+      "}",
+      ""
+    ],
     "description": "Creates a Function"
   },
   "Async Regular Function": {
@@ -287,7 +321,12 @@
   "Normal ArrowFunction": {
     "scope": "typescript,typescriptreact,javascript,javascriptreact",
     "prefix": "fn",
-    "body": ["const ${1/(.*)/${1:/camelcase}/g} = () => {", "  ${0}", "}", ""],
+    "body": [
+      "const ${1/(.*)/${1:/camelcase}/g} = () => {",
+      "  ${0}",
+      "}",
+      ""
+    ],
     "description": "Creates a React Arrow Function with ES7 module system"
   },
   "Async ArrowFunction": {
@@ -304,40 +343,54 @@
   "Anonymous ArrowFunction": {
     "scope": "typescript,typescriptreact,javascript,javascriptreact",
     "prefix": "fn:anonymous",
-    "body": ["($1) => $0"],
+    "body": [
+      "($1) => $0"
+    ],
     "description": "Creates an Anonymous Arrow Function with ES7 module system"
   },
   "consoleLog": {
     "scope": "typescript,typescriptreact,javascript,javascriptreact",
     "prefix": "clg",
-    "body": ["console.log(${1:first})"],
+    "body": [
+      "console.log(${1:first})"
+    ],
     "description": "Displays a message in the console"
   },
   /* ------------------------- export and import ------------------------- */
   "exportDefault": {
     "scope": "typescript,typescriptreact,javascript,javascriptreact",
     "prefix": "exp:default",
-    "body": ["export default ${1:${TM_FILENAME_BASE/(.*)/${1:/camelcase}/g}}"]
+    "body": [
+      "export default ${1:${TM_FILENAME_BASE/(.*)/${1:/camelcase}/g}}"
+    ]
   },
   "exportNamed": {
     "scope": "typescript,typescriptreact,javascript,javascriptreact",
     "prefix": "exp:named",
-    "body": ["export {${1:${TM_FILENAME_BASE/(.*)/${1:/camelcase}/g}}}"]
+    "body": [
+      "export {${1:${TM_FILENAME_BASE/(.*)/${1:/camelcase}/g}}}"
+    ]
   },
   "importDefault": {
     "scope": "typescript,typescriptreact,javascript,javascriptreact",
     "prefix": "imp:default",
-    "body": ["import ${2:name} from '${1:loc}'"]
+    "body": [
+      "import ${2:name} from '${1:loc}'"
+    ]
   },
   "importNamed": {
     "scope": "typescript,typescriptreact,javascript,javascriptreact",
     "prefix": "imp:named",
-    "body": ["import {${2:name}} from '${1:loc}'"]
+    "body": [
+      "import {${2:name}} from '${1:loc}'"
+    ]
   },
   "importLazy": {
     "scope": "typescript,typescriptreact,javascript,javascriptreact",
     "prefix": "imp:lazy",
-    "body": ["const ${2:name} = lazy(() => import('${1:loc}'));"]
+    "body": [
+      "const ${2:name} = lazy(() => import('${1:loc}'));"
+    ]
   },
   // api related
   "fetch api - await/async": {
