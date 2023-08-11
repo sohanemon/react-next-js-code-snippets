@@ -124,7 +124,7 @@
     "body": [
       "const ${1/(.*)/${1:/pascalcase}/g} = () => {",
       "  return (",
-      "    <div>${TM_DIRECTORY/^.+\\/(.*)/${1:/pascalcase}/g}${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g}$0</div>",
+      "    <div>${TM_DIRECTORY/^.+\\/(.*)/${1:/pascalcase}/g} ${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g}$0</div>",
       "  )",
       "}",
       ""
