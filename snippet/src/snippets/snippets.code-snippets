@@ -115,7 +115,7 @@
   /* --------------------------------------------------------------------- */
   "React Stateless": {
     "prefix": "rsc:default-export",
-    "body": "export default function ${1:${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g}}() {\n\treturn (\n\t\t<section>\n\t\t\t$0\n\t\t</section>\n\t);\n}",
+    "body": "export default function ${1:${TM_DIRECTORY/^.+\\/(.*)/${1:/pascalcase}/g}${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g}}() {\n\treturn (\n\t\t<section>\n\t\t\t${TM_DIRECTORY/^.+\\/(.*)/${1:/pascalcase}/g}${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g}$0\n\t\t</section>\n\t);\n}",
     "description": "Creates a stateless React component without PropTypes and ES6 module system"
   },
   "ArrowFunctionComponent": {
@@ -124,7 +124,7 @@
     "body": [
       "const ${1/(.*)/${1:/pascalcase}/g} = () => {",
       "  return (",
-      "    <div>${0}</div>",
+      "    <div>${TM_DIRECTORY/^.+\\/(.*)/${1:/pascalcase}/g}${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g}$0</div>",
       "  )",
       "}",
       ""
