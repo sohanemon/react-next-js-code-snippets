@@ -263,6 +263,27 @@
     "body": ["const ${0:data} = await req.json();"],
     "description": "Next Api Route"
   },
+  "Nextjs Component Is Mounted": {
+    "prefix": "ncdm",
+    "body": [
+      "'use client';",
+      "import { useEffect, useState } from 'react';",
+      "",
+      "export default function ${1:${TM_FILENAME_BASE}}() {",
+      "  const [isMounted, setIsMounted] = useState(false);",
+      "",
+      "  useEffect(() => {",
+      "    setIsMounted(true);",
+      "  }, []);",
+      "",
+      "  if (!isMounted) return null;",
+      "",
+      "  return <h1>${1:${TM_FILENAME_BASE}}</h1>;",
+      "}"
+    ],
+    "description": "React Component is Mounted",
+    "scope": "javascript, typescript, typescriptreact, javascriptreact"
+  },
   /* --------------------------------------------------------------------- */
   /* ----------------------- next 13 extension end ----------------------- */
   /* --------------------------------------------------------------------- */
