@@ -7,11 +7,7 @@
     "body": ["const {$2} = use$1($0);"],
     "description": "React use() hook"
   },
-  "useStore": {
-    "prefix": "rustore",
-    "body": ["const [$0] = use$1(s=>[$2]);"],
-    "description": "React use store hook basically for zustand and redux"
-  },
+
   "reactCustomHook": {
     "scope": "typescript,typescriptreact,javascript,javascriptreact",
     "prefix": "rchook",
@@ -41,7 +37,7 @@
   // react hooks components usage.
   "useState": {
     "prefix": "rustate",
-    "body": ["const [${1:state}, set${1/(.*)/${1:/capitalize}/}] = useState()"]
+    "body": ["const [${1}, set${1/(.*)/${1:/capitalize}/}] = useState($2);$0"]
   },
   "useEffect": {
     "prefix": "rueffect",
@@ -269,27 +265,7 @@
     "body": ["const ${0:data} = await req.json();"],
     "description": "Next Api Route"
   },
-  "Nextjs Component Is Mounted": {
-    "prefix": "ncdm",
-    "body": [
-      "'use client';",
-      "import { useEffect, useState } from 'react';",
-      "",
-      "export default function ${1:${TM_FILENAME_BASE}}() {",
-      "  const [isMounted, setIsMounted] = useState(false);",
-      "",
-      "  useEffect(() => {",
-      "    setIsMounted(true);",
-      "  }, []);",
-      "",
-      "  if (!isMounted) return null;",
-      "",
-      "  return <h1>${1:${TM_FILENAME_BASE}}</h1>;",
-      "}"
-    ],
-    "description": "React Component is Mounted",
-    "scope": "javascript, typescript, typescriptreact, javascriptreact"
-  },
+
   /* --------------------------------------------------------------------- */
   /* ----------------------- next 13 extension end ----------------------- */
   /* --------------------------------------------------------------------- */
@@ -316,7 +292,7 @@
   },
   "Normal ArrowFunction": {
     "scope": "typescript,typescriptreact,javascript,javascriptreact",
-    "prefix": "fn",
+    "prefix": "fn:define",
     "body": ["const ${1/(.*)/${1:/camelcase}/g} = () => {", "  ${0}", "}", ""],
     "description": "Creates a React Arrow Function with ES7 module system"
   },
@@ -333,7 +309,7 @@
   },
   "Anonymous ArrowFunction": {
     "scope": "typescript,typescriptreact,javascript,javascriptreact",
-    "prefix": "fn:anonymous",
+    "prefix": "fn:anon",
     "body": ["($1) => $0"],
     "description": "Creates an Anonymous Arrow Function with ES7 module system"
   },
