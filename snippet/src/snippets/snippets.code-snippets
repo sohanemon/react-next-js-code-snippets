@@ -131,6 +131,28 @@
     ],
     "description": "Creates a React Arrow Function Component with ES7 module system"
   },
+   "React SVG Icon Component": {
+    "prefix": "svgicon",
+    "body": [
+      "import React, { SVGProps } from 'react';",
+      "",
+        "export default function ${TM_FILENAME_BASE}(props: SVGProps<SVGSVGElement>) {",
+      "  return (",
+      "    <svg",
+      "      xmlns=\"http://www.w3.org/2000/svg\"",
+      "      viewBox=\"0 0 24 24\"",
+      "      width=\"20\"",
+      "      height=\"20\"",
+      "      {...props}",
+      "    >",
+      "      ${0}"
+      "    </svg>",
+      "  );",
+      "}"
+    ],
+    "description": "Create a custom SVG Icon as a React component",
+    "scope": "javascript, typescript, typescriptreact, javascriptreact"
+  },
   /* --------------------------------------------------------------------- */
   /* ------------------------ React Components End ----------------------- */
   /* --------------------------------------------------------------------- */
