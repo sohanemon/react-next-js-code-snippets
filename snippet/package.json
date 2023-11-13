@@ -16,6 +16,11 @@
     "Snippets"
   ],
   "license": "LICENSE.md",
+  "scripts": {
+    "build": "cd /home/sohanemon/Projects/react-next-js-code-snippets/snippet/src/ node bundler.js",
+    "package": "npm run build && npx vsce package",
+    "publish": "npm run build && npx vsce publish"
+  },
   "contributes": {
     "snippets": [
       {
