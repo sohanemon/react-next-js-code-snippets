@@ -1,0 +1,27 @@
+{
+  "exportDefault": {
+    "scope": "typescript,typescriptreact,javascript,javascriptreact",
+    "prefix": "exp:default",
+    "body": ["export default ${1:${TM_FILENAME_BASE/(.*)/${1:/camelcase}/g}}"]
+  },
+  "exportNamed": {
+    "scope": "typescript,typescriptreact,javascript,javascriptreact",
+    "prefix": "exp:named",
+    "body": ["export {${1:${TM_FILENAME_BASE/(.*)/${1:/camelcase}/g}}}"]
+  },
+  "importDefault": {
+    "scope": "typescript,typescriptreact,javascript,javascriptreact",
+    "prefix": "imp:default",
+    "body": ["import ${2:name} from '${1:loc}'"]
+  },
+  "importNamed": {
+    "scope": "typescript,typescriptreact,javascript,javascriptreact",
+    "prefix": "imp:named",
+    "body": ["import {${2:name}} from '${1:loc}'"]
+  },
+  "importLazy": {
+    "scope": "typescript,typescriptreact,javascript,javascriptreact",
+    "prefix": "imp:lazy",
+    "body": ["const ${2:name} = lazy(() => import('${1:loc}'));"]
+  }
+}

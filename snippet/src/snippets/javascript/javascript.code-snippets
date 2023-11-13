@@ -1,0 +1,93 @@
+{
+  "Regular Function": {
+    "scope": "typescript,typescriptreact,javascript,javascriptreact",
+    "prefix": "fun",
+    "body": ["function ${1/(.*)/${1:/camelcase}/g}(){", "  ${0}", "}", ""],
+    "description": "Creates a Function"
+  },
+  "Async Regular Function": {
+    "scope": "typescript,typescriptreact,javascript,javascriptreact",
+    "prefix": ["fun:async", "afun"],
+    "body": [
+      "async function ${1/(.*)/${1:/camelcase}/g}(){",
+      "  ${0}",
+      "}",
+      ""
+    ],
+    "description": "Creates a Function"
+  },
+  "Export Regular Function": {
+    "scope": "typescript,typescriptreact,javascript,javascriptreact",
+    "prefix": ["fun:export", "efun"],
+    "body": [
+      "export function ${1/(.*)/${1:/camelcase}/g}(){",
+      "  ${0}",
+      "}",
+      ""
+    ],
+    "description": "Creates a Function"
+  },
+  "Async Regular Function": {
+    "scope": "typescript,typescriptreact,javascript,javascriptreact",
+    "prefix": ["fun:export", "efun"],
+    "body": [
+      "export function ${1/(.*)/${1:/camelcase}/g}(){",
+      "  ${0}",
+      "}",
+      ""
+    ],
+    "description": "Creates a Function"
+  },
+  "Anonymous ArrowFunction": {
+    "scope": "typescript,typescriptreact,javascript,javascriptreact",
+    "prefix": ["fn"],
+    "body": ["($1) => $0"],
+    "description": "Creates an Anonymous Arrow Function with ES7 module system"
+  },
+  "Normal ArrowFunction": {
+    "scope": "typescript,typescriptreact,javascript,javascriptreact",
+    "prefix": "fn:define",
+    "body": ["const ${1/(.*)/${1:/camelcase}/g} = () => {", "  ${0}", "}", ""],
+    "description": "Creates a React Arrow Function with ES7 module system"
+  },
+  "Async ArrowFunction": {
+    "scope": "typescript,typescriptreact,javascript,javascriptreact",
+    "prefix": "fn:async",
+    "body": [
+      "const ${1/(.*)/${1:/camelcase}/g} = async () => {",
+      "  ${0}",
+      "}",
+      ""
+    ],
+    "description": "Creates a React Arrow Function with ES7 module system"
+  },
+  "consoleLog": {
+    "scope": "typescript,typescriptreact,javascript,javascriptreact",
+    "prefix": "clg",
+    "body": ["console.log(${1:first})"],
+    "description": "Displays a message in the console"
+  },
+  "fetch api - await/async": {
+    "scope": "typescript,typescriptreact,javascript,javascriptreact",
+    "prefix": "fetch:await",
+    "body": [
+      "const res = await fetch(${1:URL})",
+      "const data = await res.json()"
+    ]
+  },
+  "fetch api - thenable": {
+    "scope": "typescript,typescriptreact,javascript,javascriptreact",
+    "prefix": "fetch:then",
+    "body": [
+      "fetch(${1:URL}, {",
+      "\tmethod: \"${2:POST}\",",
+      "\theaders: {",
+      "\t\t\"Content-Type\": \"application/json\",",
+      "\t},",
+      "\tbody: JSON.stringify(${3:data}),",
+      "})",
+      ".then((res) => res.json())",
+      ".then((data) => console.log(data));"
+    ]
+  }
+}

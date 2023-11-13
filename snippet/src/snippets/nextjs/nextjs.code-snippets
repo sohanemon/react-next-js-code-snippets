@@ -1,0 +1,130 @@
+{
+  "use client": {
+    "prefix": "uc",
+    "body": "'use client'",
+    "description": "add use client"
+  },
+  "use server": {
+    "prefix": "us",
+    "body": "'use server'",
+    "description": "add use server"
+  },
+  "Typescript layout": {
+    "prefix": "layout:typescript",
+    "scope": "typescriptreact",
+    "body": [
+      "export default function $1Layout({ children }: { children: React.ReactNode; }) {",
+      "\treturn <>{children}</>",
+      "}"
+    ],
+    "description": "Create a layout for this route"
+  },
+  "Layout": {
+    "prefix": "layout:javascript",
+    "scope": "javascript, javascriptreact",
+    "body": [
+      "export default function $1Layout({ children }) {",
+      "\treturn <>{children}</>",
+      "}"
+    ],
+    "description": "Create a layout for this route"
+  },
+  "Typescript Root Layout": {
+    "prefix": "layout:root-typescript",
+    "scope": "typescriptreact",
+    "body": [
+      "export default function RootLayout({ children }: { children: React.ReactNode; }) {",
+      "\treturn (",
+      "\t\t<html lang='en'>",
+      "\t\t\t<body>{children}</body>",
+      "\t\t</html>",
+      "\t)",
+      "}"
+    ],
+    "description": "Create a root layout"
+  },
+  "Root layout": {
+    "prefix": "layout:root-javascript",
+    "scope": "javascript, javascriptreact",
+    "body": [
+      "export default function RootLayout({ children }) {",
+      "\treturn (",
+      "\t\t<html lang='en'>",
+      "\t\t\t<body>{children}</body>",
+      "\t\t</html>",
+      "\t)",
+      "}"
+    ],
+    "description": "Create a root layout"
+  },
+  "Loading": {
+    "prefix": "loading",
+    "body": [
+      "export default function $1Loading() {",
+      "\treturn (",
+      "\t\t$2",
+      "\t)",
+      "}"
+    ],
+    "description": "Create a loading UI for this route"
+  },
+  "Error": {
+    "prefix": "error",
+    "body": [
+      "'use client'",
+      "",
+      "export default function $1Error() {",
+      "\treturn (",
+      "\t\t$2",
+      "\t)",
+      "}"
+    ],
+    "description": "Create an error UI for this route"
+  },
+  "Not found": {
+    "prefix": "notfound",
+    "body": [
+      "export default function $1NotFound() {",
+      "\treturn (",
+      "\t\t$2",
+      "\t)",
+      "}"
+    ],
+    "description": "Create a not found UI for this route"
+  },
+  "Styled JSX Importer": {
+    "scope": "typescript,typescriptreact,javascript,javascriptreact",
+    "prefix": "jsx",
+    "body": [
+      "",
+      "<style jsx>",
+      "  {`",
+      "    .${1:ClassName}{",
+      "      @apply ${0}",
+      "    }",
+      "  `}",
+      "</style>",
+      ""
+    ],
+    "description": "Use Styled JSX!"
+  },
+  "Nextjs Api route": {
+    "prefix": "api",
+    "body": [
+      "export async function ${1|GET,POST,PATCH,PUT,DELETE|}(req: Request){",
+      "\t$0",
+      "}"
+    ],
+    "description": "Next Api Route"
+  },
+  "Nextjs Api response": {
+    "prefix": "res",
+    "body": ["return NextResponse.json(${0:data});"],
+    "description": "Next Api Route"
+  },
+  "Nextjs Api request handle": {
+    "prefix": "req",
+    "body": ["const ${0:data} = await req.json();"],
+    "description": "Next Api Route"
+  }
+}
