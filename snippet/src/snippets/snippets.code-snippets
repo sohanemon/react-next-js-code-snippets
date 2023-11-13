@@ -90,17 +90,17 @@
       "  title: '${2:${TM_DIRECTORY/^.+\\/(.*)/${1:/pascalcase}/g}}',",
       "};",
       "",
-      "export default function ${1:${TM_DIRECTORY/^.+\\/(.*)/${1:/pascalcase}/g}${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g}}() {\n\treturn (\n\t\t<section>\n\t\t\t${TM_DIRECTORY/^.+\\/(.*)/${1:/pascalcase}/g}${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g}$0\n\t\t</section>\n\t);\n}"
+      "export default function ${1:${TM_DIRECTORY/^.+\\/(.*)/${1:/pascalcase}/g}${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g}}() {\n\treturn (\n\t\t<main>\n\t\t\t${TM_DIRECTORY/^.+\\/(.*)/${1:/pascalcase}/g}${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g}$0\n\t\t</main>\n\t);\n}"
     ],
     "description": "Creates a stateless React component without PropTypes and ES6 module system"
   },
   "ArrowFunctionComponent": {
     "scope": "javascript,javascriptreact,typescriptreact",
-    "prefix": "rsc:no-export",
+    "prefix": "rsc:arrow",
     "body": [
-      "const ${1/(.*)/${1:/pascalcase}/g} = () => {",
+      "const ${1:${TM_DIRECTORY/^.+\\/(.*)/${1:/pascalcase}/g}${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g}} = () => {",
       "  return (",
-      "    <div>${TM_DIRECTORY/^.+\\/(.*)/${1:/pascalcase}/g} ${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g}$0</div>",
+      "    <div>$0</div>",
       "  )",
       "}",
       ""
@@ -118,19 +118,7 @@
     ],
     "description": "Creates a Functional Component with children"
   },
-  "ArrowFunctionComponentExport": {
-    "scope": "javascript,javascriptreact,typescriptreact",
-    "prefix": "rsc:named-export",
-    "body": [
-      "export const ${1/(.*)/${1:/pascalcase}/g} = () => {",
-      "  return (",
-      "    <div>${0}</div>",
-      "  )",
-      "}",
-      ""
-    ],
-    "description": "Creates a React Arrow Function Component with ES7 module system"
-  },
+
   /* --------------------------------------------------------------------- */
   /* ------------------------ React Components End ----------------------- */
   /* --------------------------------------------------------------------- */
@@ -281,7 +269,7 @@
   },
   "Async Regular Function": {
     "scope": "typescript,typescriptreact,javascript,javascriptreact",
-    "prefix": "fun:async",
+    "prefix": ["fun:async", "afun"],
     "body": [
       "async function ${1/(.*)/${1:/camelcase}/g}(){",
       "  ${0}",
@@ -289,6 +277,34 @@
       ""
     ],
     "description": "Creates a Function"
+  },
+  "Export Regular Function": {
+    "scope": "typescript,typescriptreact,javascript,javascriptreact",
+    "prefix": ["fun:export", "efun"],
+    "body": [
+      "export function ${1/(.*)/${1:/camelcase}/g}(){",
+      "  ${0}",
+      "}",
+      ""
+    ],
+    "description": "Creates a Function"
+  },
+  "Async Regular Function": {
+    "scope": "typescript,typescriptreact,javascript,javascriptreact",
+    "prefix": ["fun:export", "efun"],
+    "body": [
+      "export function ${1/(.*)/${1:/camelcase}/g}(){",
+      "  ${0}",
+      "}",
+      ""
+    ],
+    "description": "Creates a Function"
+  },
+  "Anonymous ArrowFunction": {
+    "scope": "typescript,typescriptreact,javascript,javascriptreact",
+    "prefix": ["fn"],
+    "body": ["($1) => $0"],
+    "description": "Creates an Anonymous Arrow Function with ES7 module system"
   },
   "Normal ArrowFunction": {
     "scope": "typescript,typescriptreact,javascript,javascriptreact",
@@ -306,12 +322,6 @@
       ""
     ],
     "description": "Creates a React Arrow Function with ES7 module system"
-  },
-  "Anonymous ArrowFunction": {
-    "scope": "typescript,typescriptreact,javascript,javascriptreact",
-    "prefix": "fn:anon",
-    "body": ["($1) => $0"],
-    "description": "Creates an Anonymous Arrow Function with ES7 module system"
   },
   "consoleLog": {
     "scope": "typescript,typescriptreact,javascript,javascriptreact",
