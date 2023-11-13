@@ -1,0 +1,24 @@
+{
+  "Props with children": {
+    "scope": "typescriptreact,javascriptreact",
+    "prefix": "props:children",
+    "body": ["{ children$0 }:{ children: React.ReactNode$1}"]
+  },
+  "Props with className": {
+    "scope": "typescriptreact,javascriptreact",
+    "prefix": "props:className",
+    "body": [
+      "{ className$0, ...props }:{ className?: string$1} & HTMLAttributes<HTMLDivElement>"
+    ]
+  },
+  "Props": {
+    "scope": "typescriptreact,javascriptreact",
+    "prefix": "props",
+    "body": ["{ $0 }:{ $1 }"]
+  },
+  "cn for className": {
+    "scope": "typescriptreact,javascriptreact",
+    "prefix": "cn",
+    "body": ["className={cn$1('$0', {})}"]
+  }
+}

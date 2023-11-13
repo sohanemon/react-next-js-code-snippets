@@ -1,13 +1,10 @@
 {
-  "use client": {
-    "prefix": "uc",
-    "body": "'use client'",
-    "description": "add use client"
-  },
-  "use server": {
-    "prefix": "us",
-    "body": "'use server'",
-    "description": "add use server"
+  "Next Image Component": {
+    "scope": "typescriptreact,javascriptreact",
+    "prefix": "next:image",
+    "body": [
+      "<Image$1 src={`${2:${5:/public}/}`} alt='$0' width={${3:100}} height={${4:100}} />"
+    ]
   },
   "Typescript layout": {
     "prefix": "layout:typescript",
@@ -107,24 +104,5 @@
       ""
     ],
     "description": "Use Styled JSX!"
-  },
-  "Nextjs Api route": {
-    "prefix": "api",
-    "body": [
-      "export async function ${1|GET,POST,PATCH,PUT,DELETE|}(req: Request){",
-      "\t$0",
-      "}"
-    ],
-    "description": "Next Api Route"
-  },
-  "Nextjs Api response": {
-    "prefix": "res",
-    "body": ["return NextResponse.json(${0:data});"],
-    "description": "Next Api Route"
-  },
-  "Nextjs Api request handle": {
-    "prefix": "req",
-    "body": ["const ${0:data} = await req.json();"],
-    "description": "Next Api Route"
   }
 }
