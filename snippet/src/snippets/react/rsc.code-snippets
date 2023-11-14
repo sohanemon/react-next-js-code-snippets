@@ -36,13 +36,12 @@
   },
   "ui-components-with-ref": {
     "scope": "typescriptreact",
-    "prefix": "comp:rsc:ui:ref",
+    "prefix": "rsc:ui:ref",
     "body": [
       "",
       "import { HtmlHTMLAttributes, forwardRef } from 'react';",
       "",
-      "interface ${1:${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g}}Props extends HtmlHTMLAttributes<HTML$2> {}",
-
+      "type ${1:${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g}}Props = ComponentPropsWithRef<'div'>;",
       "",
       "const $1 = forwardRef<HTML${2:DivElement}, $1Props>(",
       "  ({ className, ...props }, ref) => {",
@@ -58,11 +57,9 @@
   },
   "ui-components": {
     "scope": "typescriptreact",
-    "prefix": "comp:rsc:ui",
+    "prefix": "rsc:ui",
     "body": [
       "import { ComponentProps } from 'react';",
-      "",
-      "import { cn } from '@sohanemon/utils';",
       "",
       "type ${1:${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g}}Props = ComponentProps<'div'>;",
       "",
@@ -81,7 +78,7 @@
   },
   "ui-components jsx": {
     "scope": "javascriptreact",
-    "prefix": "comp:rsc:ui",
+    "prefix": "rsc:ui",
     "body": [
       "export function ${1:${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g}}({",
       "  className,",
