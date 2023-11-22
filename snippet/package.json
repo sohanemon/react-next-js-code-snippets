@@ -8,7 +8,7 @@
     "url": "https://github.com/sohanemon/react-next-js-code-snippets"
   },
   "icon": "src/assets/icon.png",
-  "version": "0.2.6",
+  "version": "0.2.7",
   "engines": {
     "vscode": "^1.77.0"
   },
@@ -17,7 +17,7 @@
   ],
   "license": "LICENSE.md",
   "scripts": {
-    "build": "node src/bundler.js",
+    "build": "bun src/bundler.js",
     "package": "npm run build && npx vsce package",
     "publish": "npm run build && npx vsce publish"
   },
@@ -40,5 +40,8 @@
         "path": "dist/snippets.code-snippets"
       }
     ]
+  },
+  "dependencies": {
+    "chalk": "^5.3.0"
   }
 }

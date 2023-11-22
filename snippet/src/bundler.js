@@ -1,8 +1,10 @@
-const fs = require('fs');
-const path = require('path');
+import fs from 'fs';
+import path from 'path';
+import chalk from 'chalk';
+
 console.log('Current working directory:', process.cwd());
 
-function readAllJsonFiles(folderPath) {
+function readAllJsonFiles(folderPath, depth = 0) {
   const jsonDataArray = [];
 
   // Read all files in the folder
@@ -14,10 +16,12 @@ function readAllJsonFiles(folderPath) {
 
     if (stats.isDirectory()) {
       // Recursively read JSON files in subfolders
-      const subfolderData = readAllJsonFiles(filePath);
+      const subfolderData = readAllJsonFiles(filePath, depth + 1);
       jsonDataArray.push(...subfolderData);
     } else if (file.endsWith('.code-snippets')) {
-      console.log('->', file);
+      console.log(
+        chalk.green('  '.repeat(depth) + '->') + ' ' + chalk.blue(file)
+      );
 
       // Read and parse JSON files
       const fileContent = fs.readFileSync(filePath, 'utf8');
@@ -42,11 +46,12 @@ function mergeAndWriteAllJsonFiles(inputFolderPath, outputFilePath) {
   // Write the result to all.json
   fs.writeFileSync(outputFilePath, allJson);
 
-  console.log('Merged JSON written to', outputFilePath);
+  console.log();
+  console.log(
+    chalk.yellow('Merged JSON written to'),
+    chalk.cyan(outputFilePath)
+  );
 }
-
-// const inputFolderPath =
-//   '/home/sohanemon/Projects/react-next-js-code-snippets/snippet/src/snippets';
 
 const inputFolderPath = 'src/snippets';
 const outputFilePath = path.join(
@@ -55,8 +60,7 @@ const outputFilePath = path.join(
 );
 
 console.log();
-console.log('Bundling Starts ...');
-console.log();
+console.log(chalk.magenta('Bundling Starts ...'));
 mergeAndWriteAllJsonFiles(inputFolderPath, outputFilePath);
 console.log();
-console.log('Bundling Done.');
+console.log(chalk.green('Bundling Done.'));
