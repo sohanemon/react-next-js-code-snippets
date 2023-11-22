@@ -14,7 +14,7 @@
     "scope": "javascript,javascriptreact,typescriptreact",
     "prefix": "rsc:arrow",
     "body": [
-      "const ${1:${TM_DIRECTORY/^.+\\/(.*)/${1:/pascalcase}/g}${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g}} = () => {",
+      "export const ${1:${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g}} = () => {",
       "  return (",
       "    <div>$0</div>",
       "  )",
@@ -72,21 +72,6 @@
       "      $0",
       "    </div>",
       "  );",
-      "}"
-    ],
-    "description": "Creates a stateless React UI component and ES6 module system"
-  },
-  "ui-components jsx": {
-    "scope": "javascriptreact",
-    "prefix": "rsc:ui",
-    "body": [
-      "export function ${1:${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g}}({",
-      "  className,",
-      "  ...props",
-      "}) {",
-      "  return <section className={cn(className)} {...props}>",
-      "    ${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g}$0",
-      "  </section>;",
       "}"
     ],
     "description": "Creates a stateless React UI component and ES6 module system"
