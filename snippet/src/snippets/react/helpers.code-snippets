@@ -7,9 +7,7 @@
   "Props with className": {
     "scope": "typescriptreact,javascriptreact",
     "prefix": "props:className",
-    "body": [
-      "{ className$0, ...props }:{ className?: string$1} & HTMLAttributes<HTMLDivElement>"
-    ]
+    "body": ["{ className$0, ...props }: HTMLAttributes<HTMLDivElement>"]
   },
   "Props": {
     "scope": "typescriptreact,javascriptreact",
