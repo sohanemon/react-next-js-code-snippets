@@ -16,6 +16,13 @@
     "prefix": "random-number",
     "body": ["Math.round(Math.random() * 10)"]
   },
+  "Sleep/Wait Promise": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "prefix": ["sleep", "wait"],
+    "body": [
+      "export const sleep = (ms: number = 1000) => new Promise((resolve) => setTimeout(resolve, ms));"
+    ]
+  },
   "Random String": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": "random-string",

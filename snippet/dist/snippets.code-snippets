@@ -350,6 +350,16 @@
       "Math.round(Math.random() * 10)"
     ]
   },
+  "Sleep/Wait Promise": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "prefix": [
+      "sleep",
+      "wait"
+    ],
+    "body": [
+      "export const sleep = (ms: number = 1000) => new Promise((resolve) => setTimeout(resolve, ms));"
+    ]
+  },
   "Random String": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": "random-string",
@@ -622,7 +632,13 @@
   "useTransition": {
     "prefix": "rutransition",
     "body": [
-      "const [isPending, startTransition] = useTransition()"
+      "const [, startTransition] = useTransition()"
+    ]
+  },
+  "useDeferredValue": {
+    "prefix": "rudeferredvalue",
+    "body": [
+      "const deferred${1} = useDeferredValue(${1/(.*)/${1:/capitalize}/})"
     ]
   },
   "useReducer": {
