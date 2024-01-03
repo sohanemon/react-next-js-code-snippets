@@ -15,7 +15,8 @@
   },
   "main": "out/extension",
   "categories": [
-    "Snippets"
+    "Snippets",
+    "Other"
   ],
   "license": "LICENSE.md",
   "scripts": {
@@ -27,7 +28,9 @@
     "package": "npm run build && npx vsce package",
     "export": "npm run build && npx vsce publish"
   },
-  "activationEvents": [],
+  "activationEvents": [
+    "onCommand:shadcn.installComponents"
+  ],
   "contributes": {
     "snippets": [
       {
@@ -41,7 +44,7 @@
     ],
     "commands": [
       {
-        "command": "shadcn.install-components",
+        "command": "shadcn.installComponents",
         "title": "Shadcn/Ui: Install components"
       }
     ]

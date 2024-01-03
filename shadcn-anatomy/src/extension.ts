@@ -1,26 +1,33 @@
-'use strict';
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
 
-import * as vscode from 'vscode';
+import { ExtensionContext, commands, window } from 'vscode';
+import { showInputBox, showQuickPick } from './lib/basicInput';
+import { multiStepInput } from './lib/multiStepInput';
+import { quickOpen } from './lib/quickOpen';
 
-export function activate(context: vscode.ExtensionContext) {
-  const disposable = vscode.commands.registerCommand(
-    'shadcn.install-components',
-    function () {
-      const editor = vscode.window.activeTextEditor;
-
-      if (editor) {
-        const document = editor.document;
-        const selection = editor.selection;
-
-        // Get the word within the selection
-        const word = document.getText(selection);
-        const reversed = word.split('').reverse().join('');
-        editor.edit((editBuilder) => {
-          editBuilder.replace(selection, reversed);
-        });
-      }
-    }
+export function activate(context: ExtensionContext) {
+  context.subscriptions.push(
+    commands.registerCommand('shadcn.installComponents', async () => {
+      const options: {
+        [key: string]: (context: ExtensionContext) => Promise<void>;
+      } = {
+        showQuickPick,
+        showInputBox,
+        multiStepInput,
+        quickOpen,
+      };
+      const quickPick = window.createQuickPick();
+      quickPick.items = Object.keys(options).map((label) => ({ label }));
+      quickPick.onDidChangeSelection((selection) => {
+        if (selection[0]) {
+          options[selection[0].label](context).catch(console.error);
+        }
+      });
+      quickPick.onDidHide(() => quickPick.dispose());
+      quickPick.show();
+    })
   );
-
-  context.subscriptions.push(disposable);
 }
