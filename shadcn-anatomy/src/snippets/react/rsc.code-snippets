@@ -1,0 +1,79 @@
+{
+  "React Stateless": {
+    "prefix": "rsc:default-export",
+    "body": [
+      "export const metadata = {",
+      "  title: '${2:${TM_DIRECTORY/^.+\\/(.*)/${1:/pascalcase}/g}}',",
+      "};",
+      "",
+      "export default function ${1:${TM_DIRECTORY/^.+\\/(.*)/${1:/pascalcase}/g}${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g}}() {\n\treturn (\n\t\t<main>\n\t\t\t${TM_DIRECTORY/^.+\\/(.*)/${1:/pascalcase}/g}${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g}$0\n\t\t</main>\n\t);\n}"
+    ],
+    "description": "Creates a stateless React component without PropTypes and ES6 module system"
+  },
+  "ArrowFunctionComponent": {
+    "scope": "javascript,javascriptreact,typescriptreact",
+    "prefix": "rsc:arrow",
+    "body": [
+      "export const ${1:${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g}} = () => {",
+      "  return (",
+      "    <div>$0</div>",
+      "  )",
+      "}",
+      ""
+    ],
+    "description": "Creates a React Arrow Function Component with ES7 module system"
+  },
+  "Component with children": {
+    "scope": "javascript,javascriptreact,typescriptreact",
+    "prefix": "rsc:provider",
+    "body": [
+      "export default function ${1:${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g}}({children}: {children: React.ReactNode}){",
+      "return <>{children}</>;",
+      "}",
+      ""
+    ],
+    "description": "Creates a Functional Component with children"
+  },
+  "ui-components-with-ref": {
+    "scope": "typescriptreact",
+    "prefix": "rsc:ui:ref",
+    "body": [
+      "",
+      "import { HtmlHTMLAttributes, forwardRef } from 'react';",
+      "",
+      "type ${1:${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g}}Props = ComponentPropsWithRef<'div'>;",
+      "",
+      "const $1 = forwardRef<HTML${2:DivElement}, $1Props>(",
+      "  ({ className, ...props }, ref) => {",
+      "    return <div ref={ref} {...props} className={cn(className)}$0/>;",
+      "  }",
+      ");",
+      "",
+      "$1.displayName = '$1';",
+      "export { $1 };",
+      ""
+    ],
+    "description": "Creates a stateless React UI component and ES6 module system"
+  },
+  "ui-components": {
+    "scope": "typescriptreact",
+    "prefix": "rsc:ui",
+    "body": [
+      "import { ComponentProps } from 'react';",
+      "",
+      "type ${1:${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g}}Props = ComponentProps<'div'>;",
+      "",
+      "export function $1({",
+      "  className,",
+      "  ...props",
+      "}: $1Props ) {",
+      "  return (",
+      "    <div className={cn(className)} {...props}>",
+      "      $0",
+      "    </div>",
+      "  );",
+      "}"
+    ],
+    "description": "Creates a stateless React UI component and ES6 module system"
+  }
+}

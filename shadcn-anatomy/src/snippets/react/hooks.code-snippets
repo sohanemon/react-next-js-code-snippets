@@ -1,0 +1,86 @@
+{
+  "useHook": {
+    "prefix": "ruhook",
+    "body": ["const {$2} = use$1($0);"],
+    "description": "React use() hook"
+  },
+
+  "reactCustomHook": {
+    "scope": "typescript,typescriptreact,javascript,javascriptreact",
+    "prefix": "rchook",
+    "body": " const ${1:${TM_FILENAME_BASE/(.*)/${1:/camelcase}/g}} = () => {\n\t$0\n};\n\nexport default ${1:${TM_FILENAME_BASE}};",
+    "description": "Creates a stateless React component without PropTypes and ES6 module system"
+  },
+  "reactCustomUpdateHook": {
+    "scope": "typescript,typescriptreact,javascript,javascriptreact",
+    "prefix": "rcupdatehook",
+    "body": [
+      "import { useRef, useEffect } from 'react';",
+      "",
+      "export default function useUpdateEffect(effect: () => any, deps: any[]) {",
+      "  const isInitialMount = useRef(true);",
+      "",
+      "  useEffect(() => {",
+      "    if (isInitialMount.current) {",
+      "      isInitialMount.current = false;",
+      "    } else {",
+      "      return effect();",
+      "    }",
+      "  }, deps);",
+      "}"
+    ],
+    "description": "Creates a stateless React component without PropTypes and ES6 module system"
+  },
+  "useState": {
+    "prefix": "rustate",
+    "body": ["const [${1}, set${1/(.*)/${1:/capitalize}/}] = useState($2);$0"]
+  },
+  "useEffect": {
+    "prefix": "rueffect",
+    "body": ["useEffect$1(() => {", "  ${2}", "}, [${3}])", ""]
+  },
+  "useLayoutEffect": {
+    "prefix": "rulayouteffect",
+    "body": ["useLayoutEffect$1(() => {", "  ${2}", "}, [${3}])", ""]
+  },
+  "useRef": {
+    "prefix": "ruref",
+    "body": ["const ${1} = useRef(null)"]
+  },
+  "useTransition": {
+    "prefix": "rutransition",
+    "body": ["const [, startTransition] = useTransition()"]
+  },
+  "useDeferredValue": {
+    "prefix": "rudeferredvalue",
+    "body": [
+      "const deferred${1} = useDeferredValue(${1/(.*)/${1:/capitalize}/})"
+    ]
+  },
+  "useReducer": {
+    "prefix": "rureducer",
+    "body": [
+      "const [state, dispatch] = useReducer(${1:first}, ${2:second}, ${3:third})"
+    ]
+  },
+  "createContext": {
+    "prefix": "rccontext",
+    "body": [
+      "import { createContext, useContext } from \"react\";",
+      "const ${1:Name} = createContext();",
+      "export const use${1:Name} = () => useContext(${1:Name});$0"
+    ]
+  },
+  "useContext": {
+    "prefix": "rucontext",
+    "body": ["const ${1:first} = useContext(${2:second})"]
+  },
+  "useMemo": {
+    "prefix": "rumemo",
+    "body": ["const ${1:data} = useMemo(() => {", "\t", "} , [])"]
+  },
+  "useCallback": {
+    "prefix": "rumemo",
+    "body": ["const ${1:handle} = useCallback(() => {", "\t", "} , [])"]
+  }
+}

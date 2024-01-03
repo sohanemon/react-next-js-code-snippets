@@ -1,0 +1,82 @@
+{
+  "use client": {
+    "prefix": "uc",
+    "body": "'use client'",
+    "description": "add use client"
+  },
+  "use server": {
+    "prefix": "us",
+    "body": "'use server'",
+    "description": "add use server"
+  },
+  "Remote Image": {
+    "scope": "javascript,typescript",
+    "prefix": "next:remote:image",
+    "body": [
+      "images: {",
+      "  remotePatterns: [",
+      "    {",
+      "      protocol: 'https',",
+      "      hostname: '$0',",
+      "    },",
+      "  ],",
+      "},"
+    ]
+  },
+  "local fonts": {
+    "scope": "typescript,javascript,typescriptreact,javascriptreact",
+    "prefix": "next:localfont",
+    "body": [
+      "import localFont from 'next/font/local'",
+      " ",
+      "const myFont = localFont({",
+      "  src: '.$0',",
+      "  display: 'swap',",
+      "  variable: '--my-font',",
+      "})"
+    ]
+  },
+
+  "Metadata": {
+    "scope": "javascriptreact,typescriptreact",
+    "prefix": "next:metadata",
+    "body": ["export const metadata = {", "  title: '$0',", "};"]
+  },
+  "generateStaticParams": {
+    "scope": "javascriptreact,typescriptreact",
+    "prefix": "next:generateStaticParams",
+    "body": [
+      "export async function generateStaticParams() {",
+      "  return data.map((el) => ({",
+      "    slug: el,",
+      "  }))",
+      "}"
+    ]
+  },
+  "generateMetadata": {
+    "scope": "javascriptreact,typescriptreact",
+    "prefix": "next:generateMetadata",
+    "body": [
+      "export async function generateMetadata({ params: {slug} }: PageProps) {",
+      "  return {",
+      "    title: slug,",
+      "  }",
+      "}"
+    ]
+  },
+  "Force dynamic": {
+    "scope": "javascriptreact,typescriptreact",
+    "prefix": "next:dynamic",
+    "body": ["export const dynamic = 'force-dynamic';"]
+  },
+  "Force static": {
+    "scope": "javascriptreact,typescriptreact",
+    "prefix": "next:static",
+    "body": ["export const dynamic = 'force-static';"]
+  },
+  "Revalidate": {
+    "scope": "javascriptreact,typescriptreact",
+    "prefix": "next:revalidate",
+    "body": ["export const revalidate = 60"]
+  }
+}

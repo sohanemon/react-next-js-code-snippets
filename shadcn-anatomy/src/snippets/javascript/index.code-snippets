@@ -1,0 +1,70 @@
+{
+  "Regular Function": {
+    "prefix": "fun",
+    "body": ["function ${1/(.*)/${1:/camelcase}/g}(){", "  ${0}", "}", ""],
+    "description": "Creates a Function"
+  },
+  "Async Regular Function": {
+    "prefix": ["fun:async", "afun"],
+    "body": [
+      "async function ${1/(.*)/${1:/camelcase}/g}(){",
+      "  ${0}",
+      "}",
+      ""
+    ],
+    "description": "Creates a Function"
+  },
+  "Export Regular Function": {
+    "prefix": ["fun:export", "efun"],
+    "body": [
+      "export function ${1/(.*)/${1:/camelcase}/g}(){",
+      "  ${0}",
+      "}",
+      ""
+    ],
+    "description": "Creates a Function"
+  },
+  "Async Regular Function": {
+    "prefix": ["fun:export", "efun"],
+    "body": [
+      "export function ${1/(.*)/${1:/camelcase}/g}(){",
+      "  ${0}",
+      "}",
+      ""
+    ],
+    "description": "Creates a Function"
+  },
+  "Anonymous ArrowFunction": {
+    "prefix": ["fn"],
+    "body": ["($1) => $0"],
+    "description": "Creates an Anonymous Arrow Function with ES7 module system"
+  },
+  "Normal ArrowFunction": {
+    "prefix": "fn:define",
+    "body": ["const ${1/(.*)/${1:/camelcase}/g} = () => {", "  ${0}", "}", ""],
+    "description": "Creates a React Arrow Function with ES7 module system"
+  },
+  "Async ArrowFunction": {
+    "prefix": "fn:async",
+    "body": [
+      "const ${1/(.*)/${1:/camelcase}/g} = async () => {",
+      "  ${0}",
+      "}",
+      ""
+    ],
+    "description": "Creates a React Arrow Function with ES7 module system"
+  },
+  "consoleLog": {
+    "prefix": "clg",
+    "body": ["console.log(${1:first})"],
+    "description": "Displays a message in the console"
+  },
+  "Check Server of browser": {
+    "prefix": "isWindow",
+    "body": ["typeof window !== 'undefined'"]
+  },
+  "IIFE": {
+    "prefix": "iife",
+    "body": ["(async () => {$0})();"]
+  }
+}

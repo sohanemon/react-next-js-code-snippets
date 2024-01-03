@@ -1,0 +1,22 @@
+{
+  "exportDefault": {
+    "prefix": "exp:default",
+    "body": ["export default ${1:${TM_FILENAME_BASE/(.*)/${1:/camelcase}/g}}"]
+  },
+  "exportNamed": {
+    "prefix": "exp:named",
+    "body": ["export {${1:${TM_FILENAME_BASE/(.*)/${1:/camelcase}/g}}}"]
+  },
+  "importDefault": {
+    "prefix": "imp:default",
+    "body": ["import ${2:name} from '${1:loc}'"]
+  },
+  "importNamed": {
+    "prefix": "imp:named",
+    "body": ["import {${2:name}} from '${1:loc}'"]
+  },
+  "importLazy": {
+    "prefix": "imp:lazy",
+    "body": ["const ${2:name} = lazy(() => import('${1:loc}'));"]
+  }
+}

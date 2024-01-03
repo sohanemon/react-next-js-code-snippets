@@ -1,0 +1,108 @@
+{
+  "Next Image Component": {
+    "scope": "typescriptreact,javascriptreact",
+    "prefix": "next:image",
+    "body": [
+      "<Image$1 src={`${2:${5:/public}/}`} alt='$0' width={${3:100}} height={${4:100}} />"
+    ]
+  },
+  "Typescript layout": {
+    "prefix": "layout:typescript",
+    "scope": "typescriptreact",
+    "body": [
+      "export default function $1Layout({ children }: { children: React.ReactNode; }) {",
+      "\treturn <>{children}</>",
+      "}"
+    ],
+    "description": "Create a layout for this route"
+  },
+  "Layout": {
+    "prefix": "layout:javascript",
+    "scope": "javascript, javascriptreact",
+    "body": [
+      "export default function $1Layout({ children }) {",
+      "\treturn <>{children}</>",
+      "}"
+    ],
+    "description": "Create a layout for this route"
+  },
+  "Typescript Root Layout": {
+    "prefix": "layout:root-typescript",
+    "scope": "typescriptreact",
+    "body": [
+      "export default function RootLayout({ children }: { children: React.ReactNode; }) {",
+      "\treturn (",
+      "\t\t<html lang='en'>",
+      "\t\t\t<body>{children}</body>",
+      "\t\t</html>",
+      "\t)",
+      "}"
+    ],
+    "description": "Create a root layout"
+  },
+  "Root layout": {
+    "prefix": "layout:root-javascript",
+    "scope": "javascript, javascriptreact",
+    "body": [
+      "export default function RootLayout({ children }) {",
+      "\treturn (",
+      "\t\t<html lang='en'>",
+      "\t\t\t<body>{children}</body>",
+      "\t\t</html>",
+      "\t)",
+      "}"
+    ],
+    "description": "Create a root layout"
+  },
+  "Loading": {
+    "prefix": "loading",
+    "body": [
+      "export default function $1Loading() {",
+      "\treturn (",
+      "\t\t$2",
+      "\t)",
+      "}"
+    ],
+    "description": "Create a loading UI for this route"
+  },
+  "Error": {
+    "prefix": "error",
+    "body": [
+      "'use client'",
+      "",
+      "export default function $1Error() {",
+      "\treturn (",
+      "\t\t$2",
+      "\t)",
+      "}"
+    ],
+    "description": "Create an error UI for this route"
+  },
+  "Not found": {
+    "prefix": "notfound",
+    "body": [
+      "export default function $1NotFound() {",
+      "\treturn (",
+      "\t\t$2",
+      "\t)",
+      "}"
+    ],
+    "description": "Create a not found UI for this route"
+  },
+  "Styled JSX Importer": {
+    "scope": "typescript,typescriptreact,javascript,javascriptreact",
+    "prefix": "jsx",
+    "body": [
+      "",
+      "<style jsx>",
+      "  {`",
+      "    .${1:ClassName}{",
+      "      @apply ${0}",
+      "    }",
+      "  `}",
+      "</style>",
+      ""
+    ],
+    "description": "Use Styled JSX!"
+  }
+}
