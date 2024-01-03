@@ -1,6 +1,5 @@
 import fs from 'fs';
 import path from 'path';
-import chalk from 'chalk';
 
 console.log('Current working directory:', process.cwd());
 
@@ -19,9 +18,7 @@ function readAllJsonFiles(folderPath, depth = 0) {
       const subfolderData = readAllJsonFiles(filePath, depth + 1);
       jsonDataArray.push(...subfolderData);
     } else if (file.endsWith('.code-snippets')) {
-      console.log(
-        chalk.green('  '.repeat(depth) + '->') + ' ' + chalk.blue(file)
-      );
+      console.log('  '.repeat(depth) + '->' + ' ' + file);
 
       // Read and parse JSON files
       const fileContent = fs.readFileSync(filePath, 'utf8');
@@ -47,10 +44,7 @@ function mergeAndWriteAllJsonFiles(inputFolderPath, outputFilePath) {
   fs.writeFileSync(outputFilePath, allJson);
 
   console.log();
-  console.log(
-    chalk.yellow('Merged JSON written to'),
-    chalk.cyan(outputFilePath)
-  );
+  console.log('Merged JSON written to');
 }
 
 const inputFolderPath = 'src/snippets';
@@ -60,7 +54,7 @@ const outputFilePath = path.join(
 );
 
 console.log();
-console.log(chalk.magenta('Bundling Starts ...'));
+console.log('Bundling Starts ...');
 mergeAndWriteAllJsonFiles(inputFolderPath, outputFilePath);
 console.log();
-console.log(chalk.green('Bundling Done.'));
+console.log('Bundling Done.');
