@@ -1,14 +1,14 @@
 {
   "name": "shadcn-anatomy",
-  "displayName": "React Next JS Code Snippets",
-  "description": "React Next.js development with lightning-fast code snippets!",
+  "displayName": "Shadcn Anatomy",
+  "description": "Shadcn Anatomy code snippets!",
   "publisher": "sohanemon",
   "repository": {
     "type": "git",
-    "url": "https://github.com/sohanemon/react-next-js-code-snippets"
+    "url": "https://github.com/sohanemon/vscode-extensions/tree/main/shadcn-anatomy"
   },
   "icon": "src/assets/icon.png",
-  "version": "0.2.10",
+  "version": "0.0.1",
   "engines": {
     "vscode": "^1.77.0"
   },
