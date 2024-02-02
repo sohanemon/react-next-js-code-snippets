@@ -1,5 +1,8 @@
 {
-	"dependencies": {
-		"@vscode/vsce": "^2.20.0"
-	}
+  "scripts": {
+    "login": "npx vsce login sohanemon"
+  },
+  "dependencies": {
+    "@vscode/vsce": "^2.20.0"
+  }
 }

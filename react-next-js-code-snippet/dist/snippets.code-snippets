@@ -648,11 +648,39 @@
     ]
   },
   "createContext": {
-    "prefix": "rccontext",
+    "prefix": "rccontext:extended",
     "body": [
       "import { createContext, useContext } from \"react\";",
       "const ${1:Name} = createContext();",
       "export const use${1:Name} = () => useContext(${1:Name});$0"
+    ]
+  },
+  "extended createContext with custom hook": {
+    "prefix": "rccontext:extended",
+    "body": [
+      "import React, { ReactNode, createContext, useContext } from 'react';",
+      "",
+      "type ${1:${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g}}Type = {$0};",
+      "",
+      "const $1Context = createContext<$1Type>({} as $1Type);",
+      "",
+      "const use$1Context = (): $1Type => {",
+      "  const context = useContext($1Context);",
+      "",
+      "  if (context) return context;",
+      "  throw new Error('use$1Context must be used within a $1Provider');",
+      "};",
+      "",
+      "type ProviderType = {",
+      "  children: ReactNode;",
+      "  value: $1Type;",
+      "};",
+      "",
+      "const $1Provider = ({ children, value }: ProviderType) => (",
+      "  <$1Context.Provider value={value}>{children}</$1Context.Provider>",
+      ");",
+      "",
+      "export { $1Provider, use$1Context };"
     ]
   },
   "useContext": {

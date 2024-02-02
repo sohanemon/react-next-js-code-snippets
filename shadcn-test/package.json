@@ -11,7 +11,7 @@
   "icon": "src/assets/icon.png",
   "version": "0.0.1",
   "engines": {
-    "vscode": "^1.77.0"
+    "vscode": "^1.85.0"
   },
   "main": "out/extension",
   "categories": [
@@ -28,9 +28,6 @@
     "package": "npm run build && npx vsce package",
     "export": "npm run build && npx vsce publish"
   },
-  "activationEvents": [
-    "onCommand:shadcn.installComponents"
-  ],
   "contributes": {
     "snippets": [
       {
@@ -51,6 +48,7 @@
   },
   "devDependencies": {
     "@types/node": "^20.10.6",
+    "@types/vscode": "^1.85.0",
     "vscode": "^1.1.37"
   }
 }
