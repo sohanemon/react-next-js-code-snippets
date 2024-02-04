@@ -8,9 +8,10 @@
   "reactCustomHook": {
     "scope": "typescript,typescriptreact,javascript,javascriptreact",
     "prefix": "rchook",
-    "body": " const ${1:${TM_FILENAME_BASE/(.*)/${1:/camelcase}/g}} = () => {\n\t$0\n};\n\nexport default ${1:${TM_FILENAME_BASE}};",
+    "body": " const use${1:${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g}} = () => {\n\t$0\n};\n\nexport default use$1;",
     "description": "Creates a stateless React component without PropTypes and ES6 module system"
   },
+
   "reactCustomUpdateHook": {
     "scope": "typescript,typescriptreact,javascript,javascriptreact",
     "prefix": "rcupdatehook",
@@ -59,20 +60,10 @@
   },
   "useReducer": {
     "prefix": "rureducer",
-    "body": [
-      "const [state, dispatch] = useReducer(${1:first}, ${2:second}, ${3:third})"
-    ]
+    "body": ["const [state, dispatch] = useReducer((state, action) => {}, {})"]
   },
   "createContext": {
     "prefix": "rccontext:simple",
-    "body": [
-      "import { createContext, useContext } from \"react\";",
-      "const ${1:Name} = createContext();",
-      "export const use${1:Name} = () => useContext(${1:Name});$0"
-    ]
-  },
-  "createContext": {
-    "prefix": "rccontext:extended",
     "body": [
       "import { createContext, useContext } from \"react\";",
       "const ${1:Name} = createContext();",

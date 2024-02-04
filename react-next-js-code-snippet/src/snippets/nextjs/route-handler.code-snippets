@@ -1,6 +1,6 @@
 {
   "Nextjs Api route": {
-    "prefix": "api",
+    "prefix": "next:api",
     "body": [
       "export async function ${1|GET,POST,PATCH,PUT,DELETE|}(req: Request){",
       "\t$0",
@@ -9,7 +9,7 @@
     "description": "Next Api Route"
   },
   "Nextjs Api response": {
-    "prefix": "res",
+    "prefix": "next:res",
     "body": ["return NextResponse.json(${0:data});"],
     "description": "Next Api Route"
   },

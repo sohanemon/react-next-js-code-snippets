@@ -7,7 +7,7 @@
     ]
   },
   "Typescript layout": {
-    "prefix": "layout:typescript",
+    "prefix": "next:layout:typescript",
     "scope": "typescriptreact",
     "body": [
       "export default function $1Layout({ children }: { children: React.ReactNode; }) {",
@@ -17,7 +17,7 @@
     "description": "Create a layout for this route"
   },
   "Layout": {
-    "prefix": "layout:javascript",
+    "prefix": "next:layout:javascript",
     "scope": "javascript, javascriptreact",
     "body": [
       "export default function $1Layout({ children }) {",
@@ -27,7 +27,7 @@
     "description": "Create a layout for this route"
   },
   "Typescript Root Layout": {
-    "prefix": "layout:root-typescript",
+    "prefix": "next:layout:root-typescript",
     "scope": "typescriptreact",
     "body": [
       "export default function RootLayout({ children }: { children: React.ReactNode; }) {",
@@ -41,7 +41,7 @@
     "description": "Create a root layout"
   },
   "Root layout": {
-    "prefix": "layout:root-javascript",
+    "prefix": "next:layout:root-javascript",
     "scope": "javascript, javascriptreact",
     "body": [
       "export default function RootLayout({ children }) {",
@@ -55,7 +55,7 @@
     "description": "Create a root layout"
   },
   "Loading": {
-    "prefix": "loading",
+    "prefix": "next:loading",
     "body": [
       "export default function $1Loading() {",
       "\treturn (",
@@ -66,7 +66,7 @@
     "description": "Create a loading UI for this route"
   },
   "Error": {
-    "prefix": "error",
+    "prefix": "next:error",
     "body": [
       "'use client'",
       "",
@@ -79,7 +79,7 @@
     "description": "Create an error UI for this route"
   },
   "Not found": {
-    "prefix": "notfound",
+    "prefix": "next:notfound",
     "body": [
       "export default function $1NotFound() {",
       "\treturn (",
@@ -91,7 +91,7 @@
   },
   "Styled JSX Importer": {
     "scope": "typescript,typescriptreact,javascript,javascriptreact",
-    "prefix": "jsx",
+    "prefix": "next:jsx",
     "body": [
       "",
       "<style jsx>",
