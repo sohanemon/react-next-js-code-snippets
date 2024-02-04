@@ -60,7 +60,11 @@
   },
   "useReducer": {
     "prefix": "rureducer",
-    "body": ["const [state, dispatch] = useReducer((state, action) => {}, {})"]
+    "body": [
+      "const [state, dispatch] = useReducer((state, action) => {",
+      "\treturn [...state]",
+      "}, {})"
+    ]
   },
   "createContext": {
     "prefix": "rccontext:simple",
