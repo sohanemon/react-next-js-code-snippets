@@ -644,7 +644,9 @@
   "useReducer": {
     "prefix": "rureducer",
     "body": [
-      "const [state, dispatch] = useReducer((state, action) => {}, {})"
+      "const [state, dispatch] = useReducer((state, action) => {",
+      "\treturn [...state]",
+      "}, {})"
     ]
   },
   "createContext": {
